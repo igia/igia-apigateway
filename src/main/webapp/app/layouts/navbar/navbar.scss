@@ -1,0 +1,97 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License, v.
+ * 2.0 with a Healthcare Disclaimer.
+ * A copy of the Mozilla Public License, v. 2.0 with the Healthcare Disclaimer can
+ * be found under the top level directory, named LICENSE.
+ * If a copy of the MPL was not distributed with this file, You can obtain one at
+ * http://mozilla.org/MPL/2.0/.
+ * If a copy of the Healthcare Disclaimer was not distributed with this file, You
+ * can obtain one at the project website https://github.com/igia.
+ *
+ * Copyright (C) 2018-2019 Persistent Systems, Inc.
+ */
+@import '../../../content/scss/partials/variables';
+
+.navbar {
+    padding: 0.2rem 1rem;
+    background-color: $igia-navbar-color !important;
+    border-bottom: 2px solid $igia-border-color;
+    min-height: $igia-navbar-height !important;
+    z-index: 1000;
+    .dropdown-item.active,
+    .dropdown-item.active:focus,
+    .dropdown-item.active:hover {
+        background-color: $igia-primary-color !important;
+    }
+
+    .navbar-version {
+        font-size: 0.65em;
+    }
+
+    ul.navbar-nav {
+        .nav-item {
+            margin-left: 0.5em;
+        }
+        .active > .nav-link {
+            span {
+                span {
+                    color: $igia-primary-color !important;
+                }
+            }
+        }
+    }
+
+    a.nav-link {
+        font-weight: $igia-font-weight-medium;
+        font-size: $igia-primary-size;
+        color: $igia-secondary-color;
+        &:hover {
+            span {
+                span {
+                    color: $igia-primary-color !important;
+                }
+            }
+        }
+    }
+
+    .navbar-toggler {
+        &:hover {
+            color: $igia-primary-color;
+        }
+    }
+
+    .navbar-brand {
+        color: $igia-secondary-color;
+        font-weight: $igia-font-weight-medium;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+
+        .logo-img {
+            height: 2em;
+        }
+    }
+
+    .navbar-title {
+        color: $igia-primary-color;
+        font-size: $igia-navbar-title-size;
+        font-weight: $igia-font-weight-medium;
+        padding-right: 1rem;
+    }
+    .administrator {
+        min-width: 11rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        ul.navbar-nav {
+            position: absolute;
+            right: 1rem;
+        }
+    }
+}
