@@ -10,36 +10,22 @@
  *
  * Copyright (C) 2018-2019 Persistent Systems, Inc.
  */
-/* ==========================================================================
-Main page styles
-========================================================================== */
-@import '../../content/scss/partials/variables';
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 497px;
+    background: url('../../content/images/hipster.png') no-repeat center top;
+    background-size: contain;
+}
 
-.homePage-container {
-    .card-deck,
-    .row {
-        margin-top: 1.5rem;
-        .card-header {
-            background: $igia-primary-color;
-            color: $igia-data-bg-color;
-            .card-title {
-                margin: 0;
-                display: inline-block;
-            }
-            .logo-img {
-                height: 2em;
-                vertical-align: bottom;
-            }
-        }
-        .card-body {
-            padding-bottom: 0rem;
-            a {
-                position: absolute;
-                bottom: 1rem;
-            }
-        }
-        .card-footer {
-            border: none;
-        }
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .hipster {
+        background: url('../../content/images/hipster2x.png') no-repeat center top;
+        background-size: contain;
     }
 }
