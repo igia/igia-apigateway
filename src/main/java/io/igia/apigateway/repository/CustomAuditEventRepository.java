@@ -44,8 +44,6 @@ public class CustomAuditEventRepository implements AuditEventRepository {
 
     private final AuditEventConverter auditEventConverter;
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
-
     public CustomAuditEventRepository(PersistenceAuditEventRepository persistenceAuditEventRepository,
             AuditEventConverter auditEventConverter) {
 
@@ -74,28 +72,5 @@ public class CustomAuditEventRepository implements AuditEventRepository {
             persistentAuditEvent.setData(eventData);
             persistenceAuditEventRepository.save(persistentAuditEvent);
         }
-    }
-
-    /**
-     * Truncate event data that might exceed column length.
-     */
-    private Map<String, String> truncate(Map<String, String> data) {
-        Map<String, String> results = new HashMap<>();
-
-        if (data != null) {
-            for (Map.Entry<String, String> entry : data.entrySet()) {
-                String value = entry.getValue();
-                if (value != null) {
-                    int length = value.length();
-                    if (length > EVENT_DATA_COLUMN_MAX_LENGTH) {
-                        value = value.substring(0, EVENT_DATA_COLUMN_MAX_LENGTH);
-                        log.warn("Event data for {} too long ({}) has been truncated to {}. Consider increasing column width.",
-                                 entry.getKey(), length, EVENT_DATA_COLUMN_MAX_LENGTH);
-                    }
-                }
-                results.put(entry.getKey(), value);
-            }
-        }
-        return results;
     }
 }
