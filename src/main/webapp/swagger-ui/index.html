@@ -152,18 +152,15 @@
 
                     var $urlDropdown = $('#select_baseUrl');
                     $urlDropdown.empty();
+                    var options = "";
                     $.each(data, function(i, resource) {
-                        var tempElement = $('<div></div>').text(maybePrefix(resource.location, relativeLocation));
-                        var option = $('<option></option>')
-                        .attr("value", tempElement.text())
-                        .text(resource.name + " (" + resource.location + ")");
-                        $urlDropdown.append(option);
+                        options += '<option value="' + encodeURI(maybePrefix(resource.location, relativeLocation)) + '">' +
+                        resource.name + " (" + encodeURI(resource.location) + ")" + '</option>';
                     });
+                    $urlDropdown.append(options);
                     $urlDropdown.change();
                 });
-
             }
-
         });
     </script>
 </head>
