@@ -23,7 +23,7 @@
     "bootstrap-material-design": "4.1.1",
     "core-js": "2.5.7",
     "moment": "2.22.2",
-    "jquery": "3.3.1",
+    "jquery": "3.5.0",
     "ng-jhipster": "0.5.4",
     "ngx-cookie": "2.0.1",
     "ngx-infinite-scroll": "0.5.1",
